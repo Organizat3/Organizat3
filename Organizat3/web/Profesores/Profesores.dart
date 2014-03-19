@@ -1,28 +1,7 @@
 import 'dart:html' ; 
-
-void drawGUI() {
-  
-}
-
-void getValues() {
-  
-}
-
-void refreshGUI() {
-   
-}
-
-void onEditButton(Event e) {
-  
-}
-
-void onNewButton(Event e) {
-  
-}
-
+import '../Interaccion/Interaccion.dart' ;
 
 void main() {
-  querySelector('#botonEditar').onClick.listen(onEditButton) ;
-  querySelector('#botonNuevo').onClick.listen(onNewButton) ; 
+  querySelector('#nombreProfesor').onClick.listen(onEditValue) ;
   
 }
