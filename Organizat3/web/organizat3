@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="spa">
+	<head>
+		<meta charset="UTF-8">
+		<title>Organizat3 - Acceso Usuarios</title>
+		<script></script>
+		<style></style>
+	</head>
+
+	<body>
+		<h1>Bienvenido a Organizat3</h1>
+		<h3>Acceso a usuarios</h3>
+
+	<div id="CuadroSesion">
+		
+		<form><
+
+			<div class="text">Nombre de usuario</div>
+			<input type="text">
+			<div class="test">Contraseña</div>
+			<input type="password">
+			<input type="submit" value="Enviar">
+			<div id="registro"><a href="registro.php">Regístrate</a></div>
+			
+		</form>
+	
+	</div>
+
+</body>
+	
+	
+	
+	
