@@ -1,4 +1,5 @@
 import 'dart:html' ; 
+import '../Interaccion/Interaccion.dart' ;
 
 void drawGUI() {
   
@@ -12,17 +13,18 @@ void refreshGUI() {
    
 }
 
-void onEditButton(Event e) {
-  
+void onEditValue(Event e) {
+  String entrada = ((e.target as InputElement).value).toString() ;
+  e.target.id 
 }
 
-void onNewButton(Event e) {
+void setValue(String e) {
+    
   
 }
 
 
 void main() {
-  querySelector('#botonEditar').onClick.listen(onEditButton) ; 
   querySelector('#botonNuevo').onClick.listen(onNewButton) ;
-
+  querySelector('#nombreAsignatura').onClick.listen(onEditValue) ; 
 }
