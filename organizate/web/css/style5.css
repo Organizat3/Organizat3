@@ -11,8 +11,13 @@ body  {
 }
 
 #CamposTeachers{
-	margin-left:300px;
-	margin-top:-150px;
+	text-align:center;
+        margin-top:-120px;
+}
+
+.CentrarBoton{
+    text-align:center;
+    margin-top:10px;
 }
 
 .container {
