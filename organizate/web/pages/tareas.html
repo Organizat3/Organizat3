@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>Exámenes - Organizat3</title>
+		<title>Tarea - Organizat3</title>
 		<meta name="description" content="Calendario y agenda Organizat3" />
 		<meta name="keywords" content="calendar, calendario, app, android, agenda, universidad, estudios, estudiantes, android, iphone, web, dart" />
 		<meta name="author" content="Organizat3" />
@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="../css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="../css/style5.css" />
-		<script src="../js/modernizr.custom.js"></script>
+		<script src="js/modernizr.custom.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -37,25 +37,29 @@
 		
 		<div id="CamposTeachers">
 		
-		<h1>Añadir examen</h1>
+		<h1>Añadir tarea</h1>
 	<br>
-	Asignatura:
+	Asignatura
 	<select>
 		<option></option>
 	</select>
 	<br>
 	<br>
-	<form id="examenes" action="http://127.0.0.1:8888/examenes">
-	<input type="text" name="asignatura-examenes" placeholder="Temas a estudiar">
+	<form id="tareas-esp" action="http://127.0.0.1:8888/tareas">
+	<input type="text" name="asignatura-tareas-esp" placeholder="Nombre de la tarea">
 	<br>
 	<br>
-	<input type="text" name="DiaTarea-ex" placeholder="Día del examen">
+	<input type="text" name="DiaTarea-tareas-esp" placeholder="Día a entregar">
 	<br>
 	<br>
-	<input type="text" name="HoraTarea-ex" placeholder="Hora del examen">
+	<input type="text" name="HoraTarea-tareas-esp" placeholder="Hora a entregar">
         <br>
 	<br>
-	<input type="text" name="NotasAdicionales-ex" placeholder="NotasAdicionales">
+	Importancia
+        <select name="importance-tareas-esp"><option>Baja</option><option>Media</option><option>Alta</option><option>Urgente</option></select>
+        <br>
+	<br>
+	<input type="text" name="Notas-tareas-esp" placeholder="Notas Adicionales">
 	<br>
 	</form>
         
