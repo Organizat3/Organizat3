@@ -3,7 +3,10 @@ Aplicacion dar para web
 
 Developers
 
-Francisco navarro González(byfnk@gmail.com)
+Francisco Navarro González(byfnk@gmail.com)
+
 Josef267(josef267@gmail.com)
-Pablo Fernández guerra(pabloimrik17@gmail.com)
-Marcos frutos auge(markburnsred@gmail.com)
+
+Pablo Fernández Guerra(pabloimrik17@gmail.com)
+
+Marcos Frutos Auge(markburnsred@gmail.com)
