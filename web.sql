@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS Tareas (
 	TareasID int(11) NOT NULL AUTO_INCREMENT,
 	AsignaturasID int(11) NOT NULL,
 	UsuarioID int(11) NOT NULL,
-	Relevancia int(11) NOT NULL,
+	Relevancia int(1) NOT NULL,
 	Fecha date NOT NULL,
 	Hora time NOT NULL, 
 	Nombre varchar(10) NOT NULL,
