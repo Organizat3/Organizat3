@@ -46,7 +46,7 @@ void registrar(Map datos){
   
     Conexion = new ConnectionPool(host: SQLhost, port: SQLport, user: SQLuser, password: SQLpassword, db: SQLdb);
     Conexion.prepare(
-        'insert into Usuarios (Correo, Nombre, Apellido, Contrasena, FechaNacimiento,) values (?, ?, ?, ?, ?)'
+        'insert into Usuario (Correo, Nombre, Apellido, Contrasena, FechaNacimiento) values (?, ?, ?, ?, ?)'
       ).then((query) {
         print('prepared query insert into task');
         var params = new List();
