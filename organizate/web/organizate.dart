@@ -2,10 +2,10 @@ import 'dart:html';
 import 'dart:convert';
 
 void main() {
+  
   FormElement form = querySelector('#registro');
   ButtonElement button = querySelector('#submit');
- 
-
+  
   button.onClick.listen((e) {
     var req = new HttpRequest();
 
