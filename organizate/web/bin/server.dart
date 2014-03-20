@@ -36,7 +36,7 @@ void main(){
           //TODO: comprobar que datos no esta vacio
           //es decir, se han recibido los datos bien. 
           switch(request.uri.path){
-                case "/usuario":
+                case "/registrar":
                   registrar(datos);
                   datos = {};
                   break;
