@@ -73,18 +73,34 @@ void registrar(Map datos){
     Conexion.close();
 }
 
+void respuesta(HttpResponse resp){
+    resp.connectionInfo("", "");
+  
+}
+
+
 void login(Map datos){
-    //TODO: login comprobando salt+password  
+  Conexion.prepare('Select * from Usuario where Correo=Correo').then((query) {
+        
+  });
 }
 
-void AddAsignatura(Map datos){
+void addAsignatura(Map datos){
+  Conexion = new ConnectionPool(host: SQLhost, port: SQLport, user: SQLuser, password: SQLpassword, db: SQLdb);
+
+}
+
+void getAsignaturas(Map datos){
   
 }
 
-void RemoveAsignatura(Map datos){
+void removeAsignatura(Map datos){
   
 }
 
+void setAjustes(){
+  
+}
 
 
 
