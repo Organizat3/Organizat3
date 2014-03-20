@@ -1,22 +1,7 @@
 import 'dart:html' ; 
-
-void drawGUI() {
-  
-}
-
-void getValues() {
-  
-}
-
-void refreshGUI() {
-   
-}
-
-void editValues() {
-  
-}
-
+import '../Interaccion/Interaccion.dart' ;
 
 void main() {
-
+  querySelector('#nombreProfesor').onClick.listen(onEditValue) ;
+  
 }
