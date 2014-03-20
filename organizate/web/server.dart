@@ -1,17 +1,25 @@
 import 'dart:io';
 import 'dart:convert';
-import "package:json_object/json_object.dart";
+import 'package:json_object/json_object.dart';
 import 'package:sqljocky/sqljocky.dart';
 import 'package:sqljocky/utils.dart';
 import 'package:http_server/http_server.dart';
 
 const String webHost = "127.0.0.1";
 const int webPort = 8888;
+<<<<<<< HEAD
 const String SQLuser = "josef267";
 const String SQLpassword = "123456";
 const int SQLport = 3306;
 const String SQLdb = "calendario";
 const String SQLhost = "localhost";
+=======
+const String SQLuser = "fran";
+const String SQLpassword = "123456";
+const int SQLport = 3306;
+const String SQLdb = "Calendar";
+const String SQLhost = "91.121.7.186";
+>>>>>>> 2848cea16b28be8e6e8cb239315591f5c62b275f
 ConnectionPool Conexion;
 Map datos;
 
@@ -22,16 +30,19 @@ void main(){
         request.listen((List<int> buffer){
           var jsonString = new String.fromCharCodes(buffer);
           datos = JSON.decode(jsonString);
+          print(datos["correo"]);
+          
+          switch(request.uri.path){
+                case "/submit":
+                  registrar(datos);
+                  //datos = {};
+                  break;
+                default:
+                  break;
+          }
+          
+          
         });
-
-        switch(request.uri.path){
-              case "/submit":
-                registrar(datos);
-                datos = {};
-                break;
-              default:
-                break;
-        }
       });
       });
 }
@@ -56,7 +67,7 @@ void registrar(Map datos){
           params.add(datos["contrasena"]);
           params.add(datos["nacimiento"]);
         return query.execute(params);
-      });  
+      });
     
     Conexion.close();
 }
