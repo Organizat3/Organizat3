@@ -1,6 +1,0 @@
-name: Organizat3
-description: A sample web application
-dependencies:
-  browser: any
-  http_server: any
-  polymer: any
