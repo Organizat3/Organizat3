@@ -11,7 +11,7 @@ const int SQLport = 3306;
 const String SQLdb = "calendario";
 const String SQLhost = "localhost";
 ConnectionPool Conexion;
-Map datos;
+var Contenido;
 
 //TODO: manejar excepciones. 
 //TODO: generar salt y anadir cifrado de contrasena sha2. 
@@ -25,11 +25,13 @@ Map datos;
 
 void main(){
   
+  //TODO: modularizarlo en funciones 
+  
   HttpServer.bind(webHost, webPort).then((server) {
       server.listen((HttpRequest request) {
         request.listen((List<int> buffer){
           var jsonString = new String.fromCharCodes(buffer);
-          datos = JSON.decode(jsonString);
+          Map datos = JSON.decode(jsonString);
           
           //TODO: comprobar que datos no esta vacio
           //es decir, se han recibido los datos bien. 
@@ -46,14 +48,31 @@ void main(){
                   datos = {};
                   break;
                 default:
-                  
+                  Contenido = metodo();
+                  print(Contenido);
                   break;
           }          
         });
-      });
+        /*
+        request.response
+          ..statusCode = HttpStatus.OK
+          ..write(content)
+          ..close()
+          ;*/
+        
+      });//fin server
       });
 }
 
+
+void Respuesta(HttpResponse resp){
+    
+  
+}
+
+bool metodo(){
+  return true;
+}
 
 void registrar(Map datos){
   
@@ -71,11 +90,6 @@ void registrar(Map datos){
       });
     
     Conexion.close();
-}
-
-void respuesta(HttpResponse resp){
-    resp.connectionInfo("", "");
-  
 }
 
 
