@@ -7,10 +7,10 @@ import 'package:http_server/http_server.dart';
 
 const String webHost = "127.0.0.1";
 const int webPort = 8888;
-const String SQLuser = "root";
-const String SQLpassword = "12345";
+const String SQLuser = "josef267";
+const String SQLpassword = "123456";
 const int SQLport = 3306;
-const String SQLdb = "Calendar";
+const String SQLdb = "calendario";
 const String SQLhost = "localhost";
 ConnectionPool Conexion;
 Map datos;
