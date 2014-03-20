@@ -90,15 +90,25 @@ void registrar(Map datos){
 
 
 Map login(Map datos){
+  
+  var request = {};
+  
   Conexion.prepare('Select * from Usuario where Correo= ?').then((query) {
-        return query.execute(datos["correo"]);
+        return query.execute(datos["correo"]).then((result){
+          result.listen((row){
+            if(row["password"]==datos["password"]){
+              return request["login"]=true;
+            };
+          });
+        });
   });
   
   return {};
 }
 
 void addAsignatura(Map datos){
-  Conexion = new ConnectionPool(host: SQLhost, port: SQLport, user: SQLuser, password: SQLpassword, db: SQLdb);
+  Conexion = new ConnectionPool(host: SQLhost, port: SQLport, 
+      user: SQLuser, password: SQLpassword, db: SQLdb);
 
 }
 
