@@ -41,24 +41,24 @@ void main(){
                   datos = {};
                   break;
                 case "/login":
-                  login(datos);
+                  Contenido = login(datos);
+                  
                   datos = {};
                   break;
                 case "/addasignatura":
                   datos = {};
                   break;
                 default:
-                  Contenido = metodo();
-                  print(Contenido);
+                  print("default");
                   break;
           }          
         });
-        /*
+        
         request.response
           ..statusCode = HttpStatus.OK
-          ..write(content)
+          ..write(JSON.encode(Contenido))
           ..close()
-          ;*/
+          ;
         
       });//fin server
       });
@@ -68,10 +68,6 @@ void main(){
 void Respuesta(HttpResponse resp){
     
   
-}
-
-bool metodo(){
-  return true;
 }
 
 void registrar(Map datos){
@@ -93,10 +89,12 @@ void registrar(Map datos){
 }
 
 
-void login(Map datos){
-  Conexion.prepare('Select * from Usuario where Correo=Correo').then((query) {
-        
+Map login(Map datos){
+  Conexion.prepare('Select * from Usuario where Correo= ?').then((query) {
+        return query.execute(datos["correo"]);
   });
+  
+  return {};
 }
 
 void addAsignatura(Map datos){
