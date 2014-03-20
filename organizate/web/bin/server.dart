@@ -36,13 +36,12 @@ void main(){
           //TODO: comprobar que datos no esta vacio
           //es decir, se han recibido los datos bien. 
           switch(request.uri.path){
-                case "/submit":
+                case "/usuario":
                   registrar(datos);
                   datos = {};
                   break;
-                case "/login":
+                case "/usuario":
                   Contenido = login(datos);
-                  
                   datos = {};
                   break;
                 case "/addasignatura":
@@ -102,13 +101,13 @@ Map login(Map datos){
           });
         });
   });
-  
-  return {};
+  request["login"]=false;
+  return request;
 }
 
 void addAsignatura(Map datos){
-  Conexion = new ConnectionPool(host: SQLhost, port: SQLport, 
-      user: SQLuser, password: SQLpassword, db: SQLdb);
+ /* Conexion = new ConnectionPool(host: SQLhost, port: SQLport, 
+      user: SQLuser, password: SQLpassword, db: SQLdb);*/
 
 }
 
