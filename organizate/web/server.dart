@@ -5,6 +5,7 @@ import 'package:sqljocky/sqljocky.dart';
 import 'package:sqljocky/utils.dart';
 import 'package:http_server/http_server.dart';
 
+//Datos de autentificacion y validacion del servidor
 const String webHost = "127.0.0.1";
 const int webPort = 8888;
 const String SQLuser = "josef267";
@@ -15,6 +16,9 @@ const String SQLhost = "localhost";
 ConnectionPool Conexion;
 Map datos;
 
+/**
+ * Ejecucion del servidor 
+ */
 void main(){
   
   HttpServer.bind(webHost, webPort).then((server) {
@@ -32,19 +36,19 @@ void main(){
                 default:
                   break;
           }
-          
-          
         });
       });
-      });
+    });
 }
-
-
 
 void serverHandler(HttpRequest request){
   
 }
 
+/**
+ * Registro de un nuevo usuario (nivel de servidor)
+ * @param datos: Datos recopilados del registro (usuario)
+ */
 void registrar(Map datos){
   
     Conexion = new ConnectionPool(host: SQLhost, port: SQLport, user: SQLuser, password: SQLpassword, db: SQLdb);
@@ -64,6 +68,9 @@ void registrar(Map datos){
     Conexion.close();
 }
 
+/**
+ * Login de un usuario
+ */
 void login(){
   
 }
