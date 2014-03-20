@@ -1,16 +1,34 @@
 import 'dart:html';
+import 'dart:convert';
 
 void main() {
-  querySelector("#sample_text_id")
-      ..text = "Click me!"
-      ..onClick.listen(reverseText);
+  FormElement form = querySelector('#registro');
+  ButtonElement button = querySelector('#submit');
+
+  button.onClick.listen((e) {
+    var req = new HttpRequest();
+
+    req.onReadyStateChange.listen((ProgressEvent e) {
+      if (req.readyState == HttpRequest.DONE) {
+        print('Data submitted!');
+      }
+    });
+
+    req.open('POST', form.action);
+    req.send(JSON.encode(serializeForm(form)));
+  });
 }
 
-void reverseText(MouseEvent event) {
-  var text = querySelector("#sample_text_id").text;
-  var buffer = new StringBuffer();
-  for (int i = text.length - 1; i >= 0; i--) {
-    buffer.write(text[i]);
-  }
-  querySelector("#sample_text_id").text = buffer.toString();
+serializeForm(FormElement form) {
+
+  var data = {};
+  
+  form.querySelectorAll('input,select').forEach((Element el) {
+    if (el is InputElement)
+      data[el.name] = el.value;
+  });
+  
+  return data;
 }
+
+

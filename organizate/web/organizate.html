@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="organizate.css">
   </head>
   <body>
-    <h1>Organizate</h1>
-    
-    <p>Hello world from Dart!</p>
-    
-    <div id="sample_container_id">
-      <p id="sample_text_id">Click me!</p>
+    <div>
+      <form id="registro" action="http://127.0.0.1:8888/submit">
+        <label>Correo:</label>
+        <input type="text" name="correo" />
+        <label>Nombre:</label>
+        <input type="text" name="nombre" />
+        <label>Contrasena</label>
+        <input type="text" name="contrasena">
+      </form>
+      
+      <button id="submit">Enviar</button>    
     </div>
-
     <script type="application/dart" src="organizate.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>
