@@ -4,6 +4,7 @@ import 'dart:convert';
 void main() {
   FormElement form = querySelector('#registro');
   ButtonElement button = querySelector('#submit');
+ 
 
   button.onClick.listen((e) {
     var req = new HttpRequest();
@@ -11,6 +12,7 @@ void main() {
     req.onReadyStateChange.listen((ProgressEvent e) {
       if (req.readyState == HttpRequest.DONE) {
         print('Data submitted!');
+   
       }
     });
 

@@ -9,6 +9,10 @@ packages:
     description: collection
     source: hosted
     version: "0.9.1"
+  cookies:
+    description: cookies
+    source: hosted
+    version: "0.0.2"
   crypto:
     description: crypto
     source: hosted
