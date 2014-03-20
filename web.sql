@@ -2,11 +2,12 @@ CREATE TABLE IF NOT EXISTS Usuario (
 	UsuarioID int(11) NOT NULL AUTO_INCREMENT,
 	Correo varchar(40) COLLATE utf8_spanish_ci NOT NULL,
 	Contrasena varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-	Nombre varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
-	Apellidos varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+	Nombre varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
+	Apellido varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
 	FechaNacimiento date DEFAULT NULL,
 	Idioma varchar(10) DEFAULT NULL,
 	Modo char DEFAULT NULL,
+	Edad int(2) DEFAULT NULL,
 	PRIMARY KEY (UsuarioID)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
