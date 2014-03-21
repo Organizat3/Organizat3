@@ -23,6 +23,9 @@ var Contenido;
 //------------------------------------------------
 
 
+
+
+
 void main(){
   
   //TODO: modularizarlo en funciones 
@@ -41,8 +44,9 @@ void main(){
                   datos = {};
                   break;
                 case "/usuario":
+                  print("llega aqui");
                   Contenido = login(datos);
-                  print(Contenido);
+                  Contenido = JSON.encode(Contenido);
                   datos = {};
                   break;
                 case "/addasignatura":
@@ -53,22 +57,20 @@ void main(){
                   break;
           }          
         });
-        
+        HttpBody body;
         request.response
-          ..statusCode = HttpStatus.OK
-          ..write(JSON.encode(Contenido))
-          ..close()
-          ;
-        
+          ..headers.add('Access-Control-Allow-Origin', '*')
+          ..headers.add('Content-Type', 'text/plain')
+          ..statusCode = 201
+          ..write(body.body.toString())
+          ..writeln(Contenido)
+          ..close();
+
+
       });//fin server
       });
 }
 
-
-void Respuesta(HttpResponse resp){
-    
-  
-}
 
 void registrar(Map datos){
   
@@ -92,7 +94,7 @@ void registrar(Map datos){
 Map login(Map datos){
   
   var request = {};
-  
+  /*
   request["login"]=false;
   Conexion.prepare('Select * from Usuario where Correo= ?').then((query) {
         return query.execute(datos["correo"]).then((result){
@@ -103,6 +105,9 @@ Map login(Map datos){
           });
         });
   });
+  return request;
+  */
+  request["password"]=true;
   return request;
 }
 
