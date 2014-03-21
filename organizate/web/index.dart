@@ -6,6 +6,13 @@ void main() {
   
   FormElement form = querySelector('#login');
   ButtonElement button = querySelector('#entrar');
+  ButtonElement button1 = querySelector('#register');
+  
+  button1.onClick.listen((e){
+    window.location.assign("pages/registroUsuario.html");
+    
+  
+  });
     
   button.onClick.listen((e) {
     var req = new HttpRequest();
