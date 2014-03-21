@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:sqljocky/sqljocky.dart';
 import 'package:http_server/http_server.dart';
-/*
+
 const String webHost = "127.0.0.1";
 const int webPort = 8888;
 const String SQLuser = "josef267";
@@ -10,14 +10,6 @@ const String SQLpassword = "123456";
 const int SQLport = 3306;
 const String SQLdb = "calendario";
 const String SQLhost = "localhost";
-ConnectionPool Conexion;*/
-const String webHost = "127.0.0.1";
-const int webPort = 8888;
-const String SQLuser = "fran";
-const String SQLpassword = "123456";
-const int SQLport = 3306;
-const String SQLdb = "Calendar";
-const String SQLhost = "91.121.7.186";
 ConnectionPool Conexion;
 var Contenido;
 
@@ -73,15 +65,14 @@ void Respuesta(HttpRequest request){
       ..statusCode = 201
       ..write(Contenido)
       ..close();
-  }
-  /* TODO: implementar caso para errores. 
+  }else{
     request.response
       ..headers.add('Access-Control-Allow-Origin', '*')
       ..headers.add('Content-Type', 'text/plain')
       ..statusCode = 500
       ..write("Error")
       ..close(); 
-  */
+  }
 }
 
 //TODO: devolver un Map: si se ha conseguido o no, y el error. 
