@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:sqljocky/sqljocky.dart';
 import 'package:http_server/http_server.dart';
-
+/*
 const String webHost = "127.0.0.1";
 const int webPort = 8888;
 const String SQLuser = "josef267";
@@ -10,6 +10,14 @@ const String SQLpassword = "123456";
 const int SQLport = 3306;
 const String SQLdb = "calendario";
 const String SQLhost = "localhost";
+ConnectionPool Conexion;*/
+const String webHost = "127.0.0.1";
+const int webPort = 8888;
+const String SQLuser = "fran";
+const String SQLpassword = "123456";
+const int SQLport = 3306;
+const String SQLdb = "Calendar";
+const String SQLhost = "91.121.7.186";
 ConnectionPool Conexion;
 var Contenido;
 
@@ -19,9 +27,7 @@ var Contenido;
 //------------------------------------------------
 //TODO:
 //  -Consultar
-//  -Enviar respuestas
 //------------------------------------------------
-
 
 void main(){
   
@@ -36,13 +42,13 @@ void main(){
           //TODO: comprobar que datos no esta vacio
           //es decir, se han recibido los datos bien. 
           switch(request.uri.path){
-                case "/submit":
+                case "/registro":
                   registrar(datos);
                   datos = {};
                   break;
-                case "/login":
+                case "/usuario":
                   Contenido = login(datos);
-                  
+                  Contenido = JSON.encode(Contenido);
                   datos = {};
                   break;
                 case "/addasignatura":
@@ -53,23 +59,32 @@ void main(){
                   break;
           }          
         });
-        
-        request.response
-          ..statusCode = HttpStatus.OK
-          ..write(JSON.encode(Contenido))
-          ..close()
-          ;
-        
-      });//fin server
+        Respuesta(request);
+      });
       });
 }
 
-
-void Respuesta(HttpResponse resp){
-    
-  
+void Respuesta(HttpRequest request){
+  if(Contenido!=null){
+    request.response
+      ..headers.add('Access-Control-Allow-Origin', '*')
+      ..headers.add('Content-Type', 'application/x-www-form-urlencoded')
+      ..headers.add("Accept", "application/json")
+      ..statusCode = 201
+      ..write(Contenido)
+      ..close();
+  }
+  /* TODO: implementar caso para errores. 
+    request.response
+      ..headers.add('Access-Control-Allow-Origin', '*')
+      ..headers.add('Content-Type', 'text/plain')
+      ..statusCode = 500
+      ..write("Error")
+      ..close(); 
+  */
 }
 
+//TODO: devolver un Map: si se ha conseguido o no, y el error. 
 void registrar(Map datos){
   
     Conexion = new ConnectionPool(host: SQLhost, port: SQLport, user: SQLuser, password: SQLpassword, db: SQLdb);
@@ -90,15 +105,28 @@ void registrar(Map datos){
 
 
 Map login(Map datos){
-  Conexion.prepare('Select * from Usuario where Correo= ?').then((query) {
-        return query.execute(datos["correo"]);
-  });
   
-  return {};
+  var request = {};
+  /*
+  request["login"]=false;
+  Conexion.prepare('Select * from Usuario where Correo= ?').then((query) {
+        return query.execute(datos["correo"]).then((result){
+          result.listen((row){
+            if(row["Contrasena"]==datos["password"]){
+              request["login"]=true;
+            };
+          });
+        });
+  });
+  return request;
+  */
+  request["password"]=true;
+  return request;
 }
 
 void addAsignatura(Map datos){
-  Conexion = new ConnectionPool(host: SQLhost, port: SQLport, user: SQLuser, password: SQLpassword, db: SQLdb);
+ /* Conexion = new ConnectionPool(host: SQLhost, port: SQLport, 
+      user: SQLuser, password: SQLpassword, db: SQLdb);*/
 
 }
 

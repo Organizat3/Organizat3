@@ -1,10 +1,13 @@
 import 'dart:html';
 import 'dart:convert';
+import 'dart:js';
 
 void main() {
   
-  FormElement form = querySelector('#registro');
-  ButtonElement button = querySelector('#submit');
+  FormElement form = querySelector('#entrar');
+  ButtonElement button = querySelector('#login');
+  
+  window.alert("hasta aqui");  
   
   button.onClick.listen((e) {
     var req = new HttpRequest();
@@ -18,6 +21,8 @@ void main() {
 
     req.open('POST', form.action);
     req.send(JSON.encode(serializeForm(form)));
+    
+    
   });
 }
 
