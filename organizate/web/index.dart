@@ -15,7 +15,12 @@ void main() {
         if(req.status==201){
           var contenido = req.response;
           contenido = JSON.decode(contenido);
-          print(contenido); 
+          if(contenido["password"]==true){
+            window.alert("Bienvenido");
+            window.location.assign('pages/tareas.html');
+          }else{
+            window.alert("Error");
+          }
         }
       }
     });

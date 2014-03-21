@@ -59,13 +59,13 @@ void main(){
                   break;
           }          
         });
-      });//fin server
+        Respuesta(request);
+      });
       });
 }
 
 void Respuesta(HttpRequest request){
-  
-  if(Contenido.isNotEmpty){
+  if(Contenido!=null){
     request.response
       ..headers.add('Access-Control-Allow-Origin', '*')
       ..headers.add('Content-Type', 'application/x-www-form-urlencoded')
@@ -73,17 +73,18 @@ void Respuesta(HttpRequest request){
       ..statusCode = 201
       ..write(Contenido)
       ..close();
-  }else{
+  }
+  /* TODO: implementar caso para errores. 
     request.response
       ..headers.add('Access-Control-Allow-Origin', '*')
-      ..headers.add('Content-Type', 'application/x-www-form-urlencoded')
-      ..headers.add("Accept", "application/json")
-      ..statusCode = 201
-      ..write(Contenido)
+      ..headers.add('Content-Type', 'text/plain')
+      ..statusCode = 500
+      ..write("Error")
       ..close(); 
-  }
+  */
 }
 
+//TODO: devolver un Map: si se ha conseguido o no, y el error. 
 void registrar(Map datos){
   
     Conexion = new ConnectionPool(host: SQLhost, port: SQLport, user: SQLuser, password: SQLpassword, db: SQLdb);
