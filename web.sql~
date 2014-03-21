@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS Usuario (
 	UsuarioID int(11) NOT NULL AUTO_INCREMENT,
 	Correo varchar(40) COLLATE utf8_spanish_ci NOT NULL,
-	zContrasena varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+	Contrasena varchar(255) COLLATE utf8_spanish_ci NOT NULL,
 	Nombre varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
 	Apellido varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
 	FechaNacimiento date DEFAULT NULL,
