@@ -1,4 +1,4 @@
-Aplicacion web en Dart para Hackaton "Dart Flight School Granada"
+Web application in Dart for the Hackaton "Dart Flight School Granada"
 
 
 Developers
