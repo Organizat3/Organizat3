@@ -6,25 +6,23 @@ void main() {
   
   FormElement form = querySelector('#login');
   ButtonElement button = querySelector('#entrar');
-  
-  window.alert("hasta aqui");  
-  
+    
   button.onClick.listen((e) {
     var req = new HttpRequest();
 
     req.onReadyStateChange.listen((ProgressEvent e) {
-      if (req.readyState == HttpRequest.DONE) {
-        print('Data submitted!');   
+      if (req.readyState == 4) {
+        if(req.status==201){
+          var contenido = req.response;
+          contenido = JSON.decode(contenido);
+          print(contenido); 
+        }
       }
     });
 
     req.open('POST', form.action);
     req.send(JSON.encode(serializeForm(form)));
     
-    var respuesta = req.response.toString();
-    print(respuesta);
-    //respuesta = JSON.decode(respuesta);
-
   });
 }
 

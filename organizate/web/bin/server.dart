@@ -57,13 +57,12 @@ void main(){
                   break;
           }          
         });
-        HttpBody body;
         request.response
           ..headers.add('Access-Control-Allow-Origin', '*')
-          ..headers.add('Content-Type', 'text/plain')
+          ..headers.add('Content-Type', 'application/x-www-form-urlencoded')
+          ..headers.add("Accept", "application/json")
           ..statusCode = 201
-          ..write(body.body.toString())
-          ..writeln(Contenido)
+          ..write(Contenido)
           ..close();
 
 

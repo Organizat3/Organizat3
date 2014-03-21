@@ -4,8 +4,10 @@ import 'dart:js';
 
 void main() {
   
-  FormElement form = querySelector('#login');
-  ButtonElement button = querySelector('#entrar');
+  FormElement form = querySelector('#entrar');
+  ButtonElement button = querySelector('#login');
+  
+  window.alert("hasta aqui");  
   
   button.onClick.listen((e) {
     var req = new HttpRequest();
@@ -20,13 +22,6 @@ void main() {
     req.open('POST', form.action);
     req.send(JSON.encode(serializeForm(form)));
     
-    var respuesta = req.response;
-    respuesta = JSON.decode(respuesta);
-    if(respuesta["login"]==true){
-      window.alert("HIJO DE PUTA, correcto");
-    }else{
-      window.alert("Ni una ni dos ni tres, si no cero.");
-    }
     
   });
 }
@@ -42,4 +37,5 @@ serializeForm(FormElement form) {
   
   return data;
 }
+
 
