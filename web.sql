@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS Usuario (
 	Idioma varchar(10) DEFAULT NULL,
 	Modo char DEFAULT NULL,
 	Edad int(2) DEFAULT NULL,
-	PRIMARY KEY (UsuarioID)
+	PRIMARY KEY (UsuarioID,Correo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS Asignaturas (
