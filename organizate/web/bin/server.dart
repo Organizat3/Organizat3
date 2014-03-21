@@ -86,7 +86,7 @@ void registrar(Map datos){
           params.add(datos["correo"]);
           params.add(datos["nombre"]);
           params.add(datos["apellido"]);
-          params.add(datos["contrasena"]);
+          params.add(datos["pass"]);
           params.add(datos["nacimiento"]);
         return query.execute(params);
       });
