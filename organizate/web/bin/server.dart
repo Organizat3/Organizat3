@@ -42,6 +42,7 @@ void main(){
                   break;
                 case "/usuario":
                   Contenido = login(datos);
+                  print(Contenido);
                   datos = {};
                   break;
                 case "/addasignatura":
@@ -92,16 +93,16 @@ Map login(Map datos){
   
   var request = {};
   
+  request["login"]=false;
   Conexion.prepare('Select * from Usuario where Correo= ?').then((query) {
         return query.execute(datos["correo"]).then((result){
           result.listen((row){
             if(row["Contrasena"]==datos["password"]){
-              return request["login"]=true;
+              request["login"]=true;
             };
           });
         });
   });
-  request["login"]=false;
   return request;
 }
 
