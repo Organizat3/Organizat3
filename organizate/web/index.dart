@@ -17,9 +17,10 @@ void main() {
           contenido = JSON.decode(contenido);
           if(contenido["password"]==true){
             window.alert("Bienvenido");
-            window.location.assign('pages/tareas.html');
+            window.location.assign('Calendario/calendar.html');
           }else{
-            window.alert("Error");
+            window.alert("Error vuelve a intentarlo");
+            window.location.assign('index.html');
           }
         }
       }
