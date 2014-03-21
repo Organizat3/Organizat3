@@ -20,6 +20,8 @@ void main(){
 
       req.open('POST', form.action);
       req.send(JSON.encode(serializeForm(form)));
+      //TODO: make response in the server and check in this point
+      window.location.assign("../pages/calendar.html");
       
       
     });
