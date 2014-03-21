@@ -4,8 +4,8 @@ import 'dart:js';
 
 void main() {
   
-  FormElement form = querySelector('#entrar');
-  ButtonElement button = querySelector('#login');
+  FormElement form = querySelector('#login');
+  ButtonElement button = querySelector('#entrar');
   
   button.onClick.listen((e) {
     var req = new HttpRequest();
