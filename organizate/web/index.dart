@@ -17,7 +17,7 @@ void main() {
           contenido = JSON.decode(contenido);
           if(contenido["password"]==true){
             window.alert("Bienvenido");
-            window.location.assign('Calendario/calendar.html');
+            window.location.assign('pages/calendar.html');
           }else{
             window.alert("Error vuelve a intentarlo");
             window.location.assign('index.html');
@@ -31,9 +31,6 @@ void main() {
     
   });
 }
-
-
-
 
 serializeForm(FormElement form) {
 
